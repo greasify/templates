@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import Solidjs from 'vite-plugin-solid'
 import Userscript from 'vite-userscript-plugin'
 
 import { author, homepage, license, name, version } from './package.json'
@@ -6,9 +7,10 @@ import { author, homepage, license, name, version } from './package.json'
 export default defineConfig((config) => {
   return {
     plugins: [
+      Solidjs(),
       Userscript({
         fileName: '{{NAME}}',
-        entry: 'src/index.ts',
+        entry: 'src/index.tsx',
         header: {
           name,
           version,

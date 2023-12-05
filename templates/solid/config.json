@@ -1,12 +1,13 @@
 {
   "dependencies": [
-    "@zero-dependency/dom@latest"
+    "solid-js@latest"
   ],
   "devDependencies": [
     "@crashmax/prettier-config@latest",
     "@crashmax/tsconfig@latest",
     "typescript@latest",
     "sass@latest",
+    "vite-plugin-solid@latest",
     "vite@latest",
     "vite-userscript-plugin@latest"
   ]
