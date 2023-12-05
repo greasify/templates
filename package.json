@@ -1,0 +1,12 @@
+{
+  "name": "greasify-templates",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "dependencies": {
+    "adm-zip": "0.5.10"
+  },
+  "devDependencies": {
+    "@types/github-script": "github:actions/github-script"
+  }
+}

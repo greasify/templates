@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "@zero-dependency/dom@latest"
+  ],
+  "devDependencies": [
+    "@crashmax/prettier-config@latest",
+    "@crashmax/tsconfig@latest",
+    "typescript@latest",
+    "sass",
+    "vite@latest",
+    "vite-userscript-plugin@latest"
+  ]
+}
