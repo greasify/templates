@@ -2,8 +2,8 @@ name: Build Artifacts
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -18,4 +18,4 @@ jobs:
         with:
           script: |
             const { default: buildArtifacts } = await import('${{ github.workspace }}/build-artifacts.js')
-            await buildArtifacts({ github, context })
+            await buildArtifacts({ github, context }, '${{ github.ref_name }}')
