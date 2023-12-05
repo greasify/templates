@@ -2,7 +2,7 @@
   "name": "greasify-templates",
   "private": true,
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "adm-zip": "0.5.10"
   },
