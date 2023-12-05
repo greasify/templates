@@ -18,4 +18,4 @@ jobs:
         with:
           script: |
             const { default: buildArtifacts } = await import('${{ github.workspace }}/build-artifacts.js')
-            await buildArtifacts()
+            await buildArtifacts({ github, context })
