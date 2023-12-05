@@ -2,6 +2,10 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import Zip from "adm-zip";
 
+function randomTagName() {
+  return Math.random().toString(36).slice(2, 8);
+}
+
 /** @param {import('@types/github-script').AsyncFunctionArguments} AsyncFunctionArguments */
 export default async function build({ github, context }) {
   const artifactsDirectoryPath = path.join(process.cwd(), "artifacts");
@@ -17,7 +21,7 @@ export default async function build({ github, context }) {
     repo: context.repo.repo,
     draft: false,
     prerelease: false,
-    tag_name: "latest",
+    tag_name: randomTagName(),
   });
 
   async function uploadArtifact(name, path) {
