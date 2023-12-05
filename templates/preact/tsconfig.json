@@ -1,0 +1,9 @@
+{
+  "extends": "@crashmax/tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
+  "include": ["src/**/*"]
+}

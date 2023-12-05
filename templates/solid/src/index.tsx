@@ -1,6 +1,7 @@
 import { createMemo, createSignal } from 'solid-js'
 import { render } from 'solid-js/web'
 import type { Component } from 'solid-js'
+
 import './style.scss'
 
 const App: Component = () => {

@@ -57,7 +57,7 @@ export default async function build({ github, context }, version) {
 
   async function createMetaFile(templates) {
     const meta = {
-      last_update: Date.now(),
+      date: Date.now(),
       templates,
     };
 

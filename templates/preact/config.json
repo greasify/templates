@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "@preact/signals@latest",
+    "preact@latest"
+  ],
+  "devDependencies": [
+    "@crashmax/prettier-config@latest",
+    "@crashmax/tsconfig@latest",
+    "typescript@latest",
+    "sass@latest",
+    "@preact/preset-vite@latest",
+    "vite@latest",
+    "vite-userscript-plugin@latest"
+  ]
+}
