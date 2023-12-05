@@ -17,10 +17,10 @@ export default async function build({ github, context }) {
     repo: context.repo.repo,
     draft: false,
     prerelease: false,
-    tag_name: 'latest'
+    tag_name: "latest",
   });
 
-  const uploadArtifact = async (name, path) => {
+  async function uploadArtifact(name, path) {
     await github.rest.repos.uploadReleaseAsset({
       owner: context.repo.owner,
       repo: context.repo.repo,
@@ -33,7 +33,7 @@ export default async function build({ github, context }) {
 
   async function createZipArchive(name) {
     const zip = new Zip();
-    const fileName = `${name}.zip`
+    const fileName = `${name}.zip`;
     const outputFile = path.resolve(artifactsDirectoryPath, fileName);
     zip.addLocalFolder(path.resolve(templatesDirectoryPath, name));
     zip.writeZip(outputFile);
@@ -45,5 +45,20 @@ export default async function build({ github, context }) {
     await createZipArchive(templateName);
   }
 
-  console.log('Build artifacts done')
+  async function createMetaFile(templates) {
+    const meta = {
+      last_update: Date.now(),
+      templates,
+    };
+
+    const fileName = "meta.json";
+    const outputFile = path.resolve(artifactsDirectoryPath, fileName);
+    await fs.writeFile(outputFile, JSON.stringify(meta));
+    await uploadArtifact(fileName, outputFile);
+    console.log(`Created "${fileName}" successfully`);
+  }
+
+  await createMetaFile(templatesPath);
+
+  console.log("Build artifacts done");
 }
