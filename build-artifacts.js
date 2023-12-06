@@ -2,31 +2,22 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import Zip from "adm-zip";
 
-/** @param {import('@types/github-script').AsyncFunctionArguments} AsyncFunctionArguments */
+/**
+ * @param {import('@types/github-script').AsyncFunctionArguments}
+ * @param {string}
+ */
 export default async function build({ github, context }, version) {
   const artifactsDirectoryPath = path.join(process.cwd(), "artifacts");
   const templatesDirectoryPath = path.join(process.cwd(), "templates");
   const templatesPath = await fs.readdir(templatesDirectoryPath);
-
-  try {
-    await fs.mkdir(artifactsDirectoryPath);
-  } catch {}
-
-  const formattedDate = new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-  }).format(new Date());
+  await fs.mkdir(artifactsDirectoryPath);
 
   const release = await github.rest.repos.createRelease({
     owner: context.repo.owner,
     repo: context.repo.repo,
     draft: false,
     prerelease: false,
-    name: `Greasify Templates ${formattedDate}`,
+    name: version,
     tag_name: version,
   });
 
@@ -69,6 +60,5 @@ export default async function build({ github, context }, version) {
   }
 
   await createMetaFile(templatesPath);
-
   console.log("Build artifacts done");
 }
