@@ -4,7 +4,7 @@ import Zip from "adm-zip";
 
 /**
  * @param {import('@types/github-script').AsyncFunctionArguments}
- * @param {string}
+ * @param {string} version
  */
 export default async function build({ github, context }, version) {
   const artifactsDirectoryPath = path.join(process.cwd(), "artifacts");
@@ -49,6 +49,7 @@ export default async function build({ github, context }, version) {
   async function createMetaFile(templates) {
     const meta = {
       date: Date.now(),
+      version,
       templates,
     };
 
