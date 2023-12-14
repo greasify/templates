@@ -9,7 +9,7 @@ export default defineConfig((config) => {
     plugins: [
       Solidjs(),
       Userscript({
-        fileName: '{{NAME}}',
+        fileName: name,
         entry: 'src/index.tsx',
         header: {
           name,

@@ -7,7 +7,7 @@ export default defineConfig((config) => {
   return {
     plugins: [
       Userscript({
-        fileName: '{{NAME}}',
+        fileName: name,
         entry: 'src/index.ts',
         header: {
           name,
