@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "{{homepage}}",
-  "author": "{{author}}",
   "license": "MIT",
   "scripts": {
     "dev": "vite build --watch --mode development",
