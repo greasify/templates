@@ -1,14 +1,14 @@
 {
-  "name": "{{NAME}}",
+  "name": "{{name}}",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "{{HOMEPAGE}}",
-  "author": "{{AUTHOR}}",
+  "homepage": "{{homepage}}",
+  "author": "{{author}}",
   "license": "MIT",
   "scripts": {
     "dev": "vite build --watch --mode development",
-    "build": "{{PACKAGE_MANAGER}} run type-check && vite build",
+    "build": "{{packageManager}} run type-check && vite build",
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx,json}\""
   }
