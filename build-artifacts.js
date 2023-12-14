@@ -46,20 +46,5 @@ export default async function build({ github, context }, version) {
     await createZipArchive(templateName);
   }
 
-  async function createMetaFile(templates) {
-    const meta = {
-      date: Date.now(),
-      version,
-      templates,
-    };
-
-    const fileName = "meta.json";
-    const outputFile = path.resolve(artifactsDirectoryPath, fileName);
-    await fs.writeFile(outputFile, JSON.stringify(meta));
-    await uploadArtifact(fileName, outputFile);
-    console.log(`Created "${fileName}" successfully`);
-  }
-
-  await createMetaFile(templatesPath);
   console.log("Build artifacts done");
 }
